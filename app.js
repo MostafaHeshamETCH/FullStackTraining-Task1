@@ -59,7 +59,7 @@ app.get('/api', (req, res) => {
 });
 
 //blog routes from router
-app.use(blogRoutes);
+app.use('/blogs', blogRoutes);
   
 // 404 page (must be last) - use function is executed for every request
 app.use((req, res) => {
