@@ -1,7 +1,7 @@
 //requires
 const express = require('express');
 const mongoose = require('mongoose');
-const Blog = require('./models/blog');
+const blogRoutes = require('./routes/blogRoutes');
 const axios = require('axios');
 
 //express init
@@ -47,15 +47,7 @@ app.use(express.urlencoded({extended: true}));
 
 //routes - TODO
 app.get('/', (req, res) => {
-  Blog.find().sort({createdAt: -1}).then(
-    (result) => {
-      res.render('index', { title: 'All Blogs', blogs: result});
-    }
-  ).catch(
-    (err) => {
-      console.log(err);
-    }
-  );
+  res.redirect('/blogs');
 });
 
 app.get('/about', (req, res) => {
@@ -66,27 +58,8 @@ app.get('/api', (req, res) => {
   res.render('check_api', { title: 'Check API' });
 });
 
-//blog routes
-app.get('/blogs', (req, res) => {
-  res.redirect('/');
-});
-
-app.post('/blogs', (req, res) => {
-  const blog = new Blog(req.body);
-  blog.save().then(
-    (result) => {
-      res.redirect('/');
-    }
-  ).catch(
-    (err) => {
-      console.log(err);
-    }
-  );
-});
-
-app.get('/blogs/create', (req, res) => {
-  res.render('create', { title: 'Create a new blog' });
-});
+//blog routes from router
+app.use(blogRoutes);
   
 // 404 page (must be last) - use function is executed for every request
 app.use((req, res) => {
