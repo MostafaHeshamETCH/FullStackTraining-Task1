@@ -19,7 +19,7 @@ mongoose.connect(dbURI, {useNewUrlParser: true, UseUnifiedTopology: true}).then(
   (err) => {
     console.log("did not connect to db");
     console.log(err);
-  }
+  } 
 );
 
 //view set
