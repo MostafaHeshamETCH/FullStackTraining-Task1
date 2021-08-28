@@ -12,7 +12,7 @@ const dbURI = "mongodb+srv://Etchos:x5dIGf4P3gk5LoUG@cluster0.8vmec.mongodb.net/
 mongoose.connect(dbURI, {useNewUrlParser: true, UseUnifiedTopology: true}).then(
   (result) => {
     console.log("connected to db");
-    app.listen(3000);
+    app.listen(process.env.PORT || 3000);
     console.log("server on port 3000");
   }
 ).catch(
