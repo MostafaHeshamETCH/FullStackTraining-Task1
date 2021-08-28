@@ -5,10 +5,11 @@
   <%- include("./partials/nav.ejs") %>
 
   <div class="about content">
-    <h2>API</h2>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia quibusdam quaerat illo a modi tenetur ut blanditiis, illum quo consectetur recusandae excepturi natus impedit rem, tempora cum fuga quae in.</p>
+    <h2>Weather in Egypt</h2>
+    <h3 class="title"><%= weather.name %></h3>
+    <p class="snippet">Weather Today is <strong><%= (weather.main.temp - 273.15).toFixed(1) %> C</strong></p>
+    <p class="snippet">Wind Speed is <strong><%= weather.wind.speed %></strong></p>
+    <p class="snippet">Humidity is <strong><%= weather.main.humidity %></strong></p>
   </div>
 
   <%- include("./partials/footer.ejs") %>
